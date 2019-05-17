@@ -20,5 +20,5 @@ Route::get('/teste', function () {
 });
 
 Route::get('/cadastrar', function () {
-    return view('cadastrar');
+    return view('/pages/cadastrar');
 });
