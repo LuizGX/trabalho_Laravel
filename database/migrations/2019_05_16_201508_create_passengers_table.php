@@ -17,9 +17,12 @@ class CreatePassengersTable extends Migration
             $table->bigIncrements('id');
             $table->string('nome');
             $table->string('endereco');
+            $table->string('numero');
             $table->string('telefone');
             $table->string('rg');
             $table->string('cpf');
+            $table->string('sexo');
+            $table->string('email');
             $table->timestamps();
         });
     }
