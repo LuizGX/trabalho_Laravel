@@ -59,7 +59,7 @@
                                         <input type="text" class="form-control" id="telefone" placeholder="(12)9 3456-7890">
                                     </div>
                                     <div class="col-md-5">
-                                        <label for="email">Email</label>
+                                        <label for="email">E-mail</label>
                                         <input type="text" class="form-control" id="email" placeholder="exemplo@dominio.com">
                                     </div>
                                 </div>
