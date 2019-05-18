@@ -17,12 +17,10 @@
                 <span id="authenicate" class="authentication-email"></span>
                 <input type="email" id="email" class="form-control animated bounceIn" for="inputSuccess3" placeholder="E-mail" required autofocus> 
                 <input type="password" id="password" class="form-control animated bounceInUp" placeholder="Senha" required autofocus> 
-                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">ENTRAR<button>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">ENTRAR</button>
                 </form>
                 
-                <div class="register">
-                    REGISTRAR
-                </div>
+                <button class="btn btn-block register">REGISTRAR</button>
             </div>
         </div>
     </body>

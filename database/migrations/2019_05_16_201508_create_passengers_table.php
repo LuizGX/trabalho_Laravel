@@ -17,12 +17,12 @@ class CreatePassengersTable extends Migration
             $table->bigIncrements('id');
             $table->string('nome');
             $table->string('sobrenome');
-            $table->string('rg');
-            $table->string('cpf');
+            $table->string('rg')->unique();
+            $table->string('cpf')->unique();
             $table->string('sexo');
             $table->string('dt_nasc');
             $table->string('telefone');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('senha');
             $table->string('cep');
             $table->string('logradouro');
