@@ -16,13 +16,21 @@ class CreatePassengersTable extends Migration
         Schema::create('passengers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome');
-            $table->string('endereco');
-            $table->string('numero');
-            $table->string('telefone');
+            $table->string('sobrenome');
             $table->string('rg');
             $table->string('cpf');
             $table->string('sexo');
+            $table->string('dt_nasc');
+            $table->string('telefone');
             $table->string('email');
+            $table->string('cep');
+            $table->string('logradouro');
+            $table->string('numero');
+            $table->string('complemento');
+            $table->string('cidade');
+            $table->string('uf');
+            $table->string('bairro');
+            $table->string('pais');
             $table->timestamps();
         });
     }
