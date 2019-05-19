@@ -14,7 +14,8 @@ class PassengerController extends Controller
      */
     public function index()
     {
-        return view("pages/cadastrar");
+        $passengers = Passenger::orderBy('created_at', 'desc')->get();
+        return view("pages/listaPassageiros")->with('passengers', $passengers);
     }
 
     /**

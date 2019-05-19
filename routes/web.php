@@ -20,3 +20,5 @@ Route::get('/cadastrar', function () {
 })->name('cadastrar.index');
 
 Route::post('/addPassenger', 'PassengerController@store')->name('passenger.store');
+
+Route::get('/lista', 'PassengerController@index')->name('passenger.index');
