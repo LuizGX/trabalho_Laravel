@@ -19,7 +19,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <form method="POST" action="{{ route('cadastrar.store') }}">
+                        <form method="POST" action="{{ route('passenger.store') }}">
                         @csrf
                         <fieldset>
                                 <div class="form-group row">
