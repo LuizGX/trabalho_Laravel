@@ -20,7 +20,7 @@
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">ENTRAR</button>
                 </form>
                 
-                <button class="btn btn-block register">REGISTRAR</button>
+                <button class="btn btn-block register" onclick="window.location='{{ route('cadastrar.index') }}'">REGISTRAR</button>
             </div>
         </div>
     </body>

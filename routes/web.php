@@ -15,6 +15,6 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/cadastrar', function () {
-    return view('/pages/cadastrar');
-});
+Route::get('/cadastrar', 'PassengerController@index')->name('cadastrar.index');
+
+Route::post('/addPassenger', 'PassengerController@store')->name('cadastrar.store');
