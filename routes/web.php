@@ -22,3 +22,5 @@ Route::get('/cadastrar', function () {
 Route::post('/addPassenger', 'PassengerController@store')->name('passenger.store');
 
 Route::get('/lista', 'PassengerController@index')->name('passenger.index');
+
+//Route::get('/delete', 'PassengerController@destroy')->name('passenger.destroy');
