@@ -23,7 +23,7 @@
 					</div>
 					<div class="col-sm-6">
 						<!-- <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a> -->
-						<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Deletar Selecionados</span></a>						
+						<a href="#deleteModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Deletar Selecionados</span></a>						
 					</div>
                 </div>
             </div>
@@ -47,21 +47,20 @@
                 <tbody>
 				@foreach($passengers as $passenger)
                     <tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" value="1">
-								<label for="checkbox1"></label>
-							</span>
-						</td>
+						<td>{{ $passenger->id }}</td>
                         <td>{{ $passenger->nome . " " . $passenger->sobrenome }}</td>
                         <td>{{ $passenger->email }}</td>
 						<td>{{ $passenger->rg }}</td>
                         <td>{{ $passenger->cpf }}</td>
                         <td>
-                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            <a href="#editModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            <!-- <button class="btn btn-danger" onclick="document.getElementById('deletePassenger-{{$passenger->id}}').submit">Remover</button> -->
+							
+								<button class="btn btn-danger" data-toggle="modal" data-target="#deletePassengerModal-{{ $passenger->id }}">Remover</button>
+							
+							<!-- <a href="#deleteModal" id="deleteForm" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a> -->
                         </td>
-                    </tr>
+                    </tr>	
 					@endforeach
                 </tbody>
 				@endif
@@ -80,51 +79,31 @@
             </div>
         </div>
     </div>	
-	<!-- Delete Modal HTML -->
-	<div id="deleteEmployeeModal" class="modal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<form>
-					<div class="modal-header">						
-						<h4 class="modal-title">Delete Employee</h4>
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					</div>
-					<div class="modal-body">					
-						<p>Are you sure you want to delete these Records?</p>
-						<p class="text-warning"><small>This action cannot be undone.</small></p>
-					</div>
-					<div class="modal-footer">
-						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-						<input type="submit" class="btn btn-danger" value="Delete">
-					</div>
-				</form>
-			</div>
+
+@foreach ($passengers as $passenger)
+<!-- Delete Modal -->
+<div class="modal " id="deletePassengerModal-{{ $passenger->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">Deletar passageiro <b>{{ $passenger->nome . " " . $passenger->sobrenome }}</b></h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+			Tem certeza que deseja excluí-lo?
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+			<form method="POST" id="deletePassenger-{{ $passenger->id }}" action="{{ route('passenger.delete', $passenger->id) }}">
+			@csrf
+				<button type="submit" class="btn btn-primary">Confirmar</button>
+			</form>
+		</div>
 		</div>
 	</div>
+</div>
+@endforeach
 </body>
 </html>
-
-<!-- js -->
-<!-- $(document).ready(function(){
-	// Activate tooltip
-	$('[data-toggle="tooltip"]').tooltip();
-	
-	// Select/Deselect checkboxes
-	var checkbox = $('table tbody input[type="checkbox"]');
-	$("#selectAll").click(function(){
-		if(this.checked){
-			checkbox.each(function(){
-				this.checked = true;                        
-			});
-		} else{
-			checkbox.each(function(){
-				this.checked = false;                        
-			});
-		} 
-	});
-	checkbox.click(function(){
-		if(!this.checked){
-			$("#selectAll").prop("checked", false);
-		}
-	});
-}); -->

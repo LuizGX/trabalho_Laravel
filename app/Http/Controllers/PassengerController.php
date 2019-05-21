@@ -14,7 +14,7 @@ class PassengerController extends Controller
      */
     public function index()
     {
-        $passengers = Passenger::orderBy('created_at', 'desc')->get();
+        $passengers = Passenger::orderBy('id', 'asc')->get();
         return view("pages/listaPassageiros")->with('passengers', $passengers);
     }
 
@@ -101,6 +101,8 @@ class PassengerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $passenger = Passenger::where('id',$id)->first();
+        $passenger->delete();
+        return 'funcionou';
     }
 }
