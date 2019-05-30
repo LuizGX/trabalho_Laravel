@@ -39,7 +39,6 @@ class PassengerController extends Controller
         $passenger = new Passenger();
         $passenger->nome = $request->input('nome');
         $passenger->sobrenome = $request->input('sobrenome');
-        $passenger->senha = $request->input('senha');
         $passenger->rg = $request->input('rg');
         $passenger->cpf = $request->input('cpf');
         $passenger->sexo = $request->input('sexo');

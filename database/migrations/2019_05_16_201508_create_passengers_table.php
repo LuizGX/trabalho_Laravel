@@ -23,7 +23,6 @@ class CreatePassengersTable extends Migration
             $table->string('dt_nasc');
             $table->string('telefone');
             $table->string('email')->unique();
-            $table->string('senha');
             $table->string('cep');
             $table->string('logradouro');
             $table->string('numero');

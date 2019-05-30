@@ -33,12 +33,6 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-md-4">
-                                        <label for="senha">Senha</label>
-                                        <input type="password" class="form-control" name="senha" placeholder="**********">
-                                    </div>    
-                                </div>
-                                <div class="form-group row">
                                     <div class="col-md-6">
                                         <label for="rg">RG</label>
                                         <input type="text" class="form-control" name="rg" placeholder="UF-12.345.678">
