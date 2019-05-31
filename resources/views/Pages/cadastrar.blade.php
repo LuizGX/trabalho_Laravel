@@ -19,7 +19,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <form method="POST" action="{{ route('passenger.store') }}">
+                        <form method="POST" action="{{ route('ticket.store') }}">
                         @csrf
                         <fieldset>
                                 <div class="form-group row">

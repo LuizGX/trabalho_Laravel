@@ -21,11 +21,11 @@ Route::get('/cadastrar', function () {
     return view('pages/cadastrar');
 })->name('cadastrar.index');
 
-Route::post('/addPassenger', 'PassengerController@store')->name('passenger.store');
+Route::post('/addTicket', 'TicketController@store')->name('ticket.store');
 
-Route::get('/lista', 'PassengerController@index')->name('passenger.index');
+Route::get('/lista', 'TicketController@index')->name('ticket.index');
 
-Route::post('/deletePassenger/{id}', 'PassengerController@destroy')->name('passenger.delete');
+Route::post('/deleteTicket/{id}', 'TicketController@destroy')->name('ticket.delete');
 
 
 //testar a funcionalidade role_user

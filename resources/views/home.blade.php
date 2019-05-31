@@ -21,7 +21,7 @@
                 </form>
                 
                 <button class="btn btn-block register" onclick="window.location='{{ route('cadastrar.index') }}'">REGISTRAR</button>
-                <button class="btn btn-block register" onclick="window.location='{{ route('passenger.index') }}'">Lista</button>
+                <button class="btn btn-block register" onclick="window.location='{{ route('ticket.index') }}'">Lista</button>
             </div>
         </div>
     </body>

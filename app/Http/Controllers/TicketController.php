@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Passenger;
+use App\Ticket;
 
-class PassengerController extends Controller
+class TicketController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class PassengerController extends Controller
      */
     public function index()
     {
-        $passengers = Passenger::orderBy('id', 'asc')->get();
-        return view("pages/listaPassageiros")->with('passengers', $passengers);
+        $tickets = Ticket::orderBy('id', 'asc')->get();
+        return view("pages/listaPassageiros")->with('tickets', $tickets);
     }
 
     /**
@@ -36,24 +36,25 @@ class PassengerController extends Controller
      */
     public function store(Request $request)
     {
-        $passenger = new Passenger();
-        $passenger->nome = $request->input('nome');
-        $passenger->sobrenome = $request->input('sobrenome');
-        $passenger->rg = $request->input('rg');
-        $passenger->cpf = $request->input('cpf');
-        $passenger->sexo = $request->input('sexo');
-        $passenger->dt_nasc = $request->input('dt_nasc');
-        $passenger->telefone= $request->input('telefone');
-        $passenger->email= $request->input('email');
-        $passenger->cep = $request->input('cep');
-        $passenger->cidade = $request->input('cidade');
-        $passenger->logradouro = $request->input('logradouro');
-        $passenger->numero = $request->input('numero');
-        $passenger->complemento = $request->input('complemento');
-        $passenger->uf = $request->input('uf');
-        $passenger->bairro = $request->input('bairro');
-        $passenger->pais = $request->input('pais');
-        $passenger->save();
+        $ticket = new Ticket();
+        $ticket->nome = $request->input('nome');
+        $ticket->sobrenome = $request->input('sobrenome');
+        $ticket->rg = $request->input('rg');
+        $ticket->cpf = $request->input('cpf');
+        $ticket->sexo = $request->input('sexo');
+        $ticket->dt_nasc = $request->input('dt_nasc');
+        $ticket->telefone= $request->input('telefone');
+        $ticket->email= $request->input('email');
+        $ticket->cep = $request->input('cep');
+        $ticket->cidade = $request->input('cidade');
+        $ticket->logradouro = $request->input('logradouro');
+        $ticket->numero = $request->input('numero');
+        $ticket->complemento = $request->input('complemento');
+        $ticket->uf = $request->input('uf');
+        $ticket->bairro = $request->input('bairro');
+        $ticket->pais = $request->input('pais');
+        $ticket->save();
+
         return redirect('/');
         //return redirect()->route('profile', [$user]);
     }
@@ -100,8 +101,8 @@ class PassengerController extends Controller
      */
     public function destroy($id)
     {
-        $passenger = Passenger::where('id',$id)->first();
-        $passenger->delete();
+        $ticket = Ticket::where('id',$id)->first();
+        $ticket->delete();
         return 'funcionou';
     }
 }

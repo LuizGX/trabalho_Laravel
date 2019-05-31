@@ -26,17 +26,17 @@
 					<th></th>
 				</tr>
 			</thead>
-			@if(count($passengers))
+			@if(count($tickets))
 			<tbody>
-			@foreach($passengers as $passenger)
+			@foreach($tickets as $ticket)
 				<tr>
-					<td>{{ $passenger->id }}</td>
-					<td>{{ $passenger->nome . " " . $passenger->sobrenome }}</td>
-					<td>{{ $passenger->email }}</td>
-					<td>{{ $passenger->rg }}</td>
-					<td>{{ $passenger->cpf }}</td>
+					<td>{{ $ticket->id }}</td>
+					<td>{{ $ticket->nome . " " . $ticket->sobrenome }}</td>
+					<td>{{ $ticket->email }}</td>
+					<td>{{ $ticket->rg }}</td>
+					<td>{{ $ticket->cpf }}</td>
 					<td><button class="btn btn-warning" data-toggle="modal">Editar</button></td>
-					<td><button class="btn btn-danger" data-toggle="modal" data-target="#deletePassengerModal-{{ $passenger->id }}">Remover</button></td>
+					<td><button class="btn btn-danger" data-toggle="modal" data-target="#deleteTicketModal-{{ $ticket->id }}">Remover</button></td>
 				</tr>	
 				@endforeach
 			</tbody>
@@ -57,13 +57,13 @@
 		</div>
 	</div>	
 
-@foreach ($passengers as $passenger)
+@foreach ($tickets as $ticket)
 <!-- Delete Modal -->
-<div class="modal " id="deletePassengerModal-{{ $passenger->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal " id="deleteTicketModal-{{ $ticket->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="exampleModalLabel">Deletar passageiro <b>{{ $passenger->nome . " " . $passenger->sobrenome }}</b></h5>
+			<h5 class="modal-title" id="exampleModalLabel">Deletar passageiro <b>{{ $ticket->nome . " " . $ticket->sobrenome }}</b></h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
@@ -73,7 +73,7 @@
 		</div>
 		<div class="modal-footer">
 			<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-			<form method="POST" id="deletePassenger-{{ $passenger->id }}" action="{{ route('passenger.delete', $passenger->id) }}">
+			<form method="POST" id="deleteTicket-{{ $ticket->id }}" action="{{ route('ticket.delete', $ticket->id) }}">
 			@csrf
 				<button type="submit" class="btn btn-primary">Confirmar</button>
 			</form>
