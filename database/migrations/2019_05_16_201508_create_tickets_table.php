@@ -22,7 +22,6 @@ class CreateTicketsTable extends Migration
             $table->string('sexo');
             $table->string('dt_nasc');
             $table->string('telefone');
-            $table->string('email')->unique();
             $table->string('cep');
             $table->string('logradouro');
             $table->string('numero');
