@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ticket;
+use App\User;
 
 class TicketController extends Controller
 {
@@ -44,7 +45,6 @@ class TicketController extends Controller
         $ticket->sexo = $request->input('sexo');
         $ticket->dt_nasc = $request->input('dt_nasc');
         $ticket->telefone= $request->input('telefone');
-        $ticket->email= $request->input('email');
         $ticket->cep = $request->input('cep');
         $ticket->cidade = $request->input('cidade');
         $ticket->logradouro = $request->input('logradouro');
@@ -54,6 +54,12 @@ class TicketController extends Controller
         $ticket->bairro = $request->input('bairro');
         $ticket->pais = $request->input('pais');
         $ticket->save();
+
+        $user = new User();
+        $user->name = $request->input('nome');
+        $user->email = $request->input('email');
+        $user->password = $request->input('senha');
+        $user->save();
 
         return redirect('/');
         //return redirect()->route('profile', [$user]);

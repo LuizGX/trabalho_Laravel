@@ -109,7 +109,7 @@
                                         <input type="text" class="form-control" name="email" placeholder="exemplo@dominio.com">
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="email">Senha</label>
+                                        <label for="senha">Senha</label>
                                         <input type="text" class="form-control" name="senha" placeholder="************">
                                     </div>
                                 </div>
