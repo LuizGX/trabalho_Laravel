@@ -63,30 +63,30 @@
                                 <div class="form-group row">
                                     <div class="col-md-2">
                                         <label for="cep">CEP</label>
-                                        <input type="text" class="form-control" name="cep" placeholder="01234-567"></textarea>
+                                        <input type="text" class="form-control" id="cep" name="cep" placeholder="01234-567"></textarea>
                                     </div>
                                     <div class="col-md-1" style="margin-top:32px;">
-                                        <input type="button" class="btn btn-dark" value="OK">
+                                        <input type="button" class="btn btn-dark" value="OK" onclick="pesquisacep();">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-3">
                                         <label for="cidade">Cidade</label>
-                                        <input type="text" class="form-control" name="cidade" placeholder="Ex: Ribeirão Preto">
+                                        <input type="text" class="form-control" id='cidade' name="cidade" placeholder="Ex: Ribeirão Preto">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="uf">UF</label>
-                                        <input type="text" class="form-control" name="uf" placeholder="Ex: São Paulo">
+                                        <input type="text" class="form-control" id='uf' name="uf" placeholder="Ex: São Paulo">
                                     </div>
                                     <div class="col-md-6">
                                         <label for="bairro">Bairro</label>
-                                        <input type="text" class="form-control" name="bairro" placeholder="Ex. Centro">
+                                        <input type="text" class="form-control" id='bairro' name="bairro" placeholder="Ex. Centro">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-6">
-                                        <label for="logradouro">Logradouro</label>
-                                        <input type="text" class="form-control" name="logradouro" placeholder="Ex. Rua Amadeu Amaral"></textarea>
+                                        <label for="rua">Rua</label>
+                                        <input type="text" class="form-control" id='rua' name="rua" placeholder="Ex. Rua Amadeu Amaral"></textarea>
                                     </div>
                                     <div class="col-md-1">
                                         <label for="numero">Número</label>
@@ -120,5 +120,71 @@
                 </div>
             </div>
         </section>
+        <script type="text/javascript">
+            function limpa_formulário_cep() {
+                //Limpa valores do formulário de cep.
+                document.getElementById('rua').value=("");
+                document.getElementById('bairro').value=("");
+                document.getElementById('cidade').value=("");
+                document.getElementById('uf').value=("");
+            }
+
+            function meu_callback(conteudo) {
+                if (!("erro" in conteudo)) {
+                    //Atualiza os campos com os valores.
+                    document.getElementById('rua').value=(conteudo.logradouro);
+                    document.getElementById('bairro').value=(conteudo.bairro);
+                    document.getElementById('cidade').value=(conteudo.localidade);
+                    document.getElementById('uf').value=(conteudo.uf);
+                } //end if.
+                else {
+                    //CEP não Encontrado.
+                    limpa_formulário_cep();
+                    alert("CEP não encontrado.");
+                }
+            }
+                
+            function pesquisacep() {
+                var valor = document.getElementById('cep').value;
+                //Nova variável "cep" somente com dígitos.
+                var cep = valor.replace(/\D/g, '');
+                
+                //Verifica se campo cep possui valor informado.
+                if (cep != "") {
+
+                    //Expressão regular para validar o CEP.
+                    var validacep = /^[0-9]{8}$/;
+
+                    //Valida o formato do CEP.
+                    if(validacep.test(cep)) {
+
+                        //Preenche os campos com "..." enquanto consulta webservice.
+                        document.getElementById('rua').value="...";
+                        document.getElementById('bairro').value="...";
+                        document.getElementById('cidade').value="...";
+                        document.getElementById('uf').value="...";
+
+                        //Cria um elemento javascript.
+                        var script = document.createElement('script');
+
+                        //Sincroniza com o callback.
+                        script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+                        //Insere script no documento e carrega o conteúdo.
+                        document.body.appendChild(script);
+
+                    } //end if.
+                    else {
+                        //cep é inválido.
+                        //limpa_formulário_cep();
+                        alert("Formato de CEP inválido.");
+                    }
+                } //end if.
+                else {
+                    //cep sem valor, limpa formulário.
+                    limpa_formulário_cep();
+                }
+            };
+        </script>
     </body>
 </html>
