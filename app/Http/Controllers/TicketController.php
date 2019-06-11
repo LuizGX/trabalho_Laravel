@@ -47,7 +47,6 @@ class TicketController extends Controller
         $ticket->telefone= $request->input('telefone');
         $ticket->cep = $request->input('cep');
         $ticket->cidade = $request->input('cidade');
-        $ticket->logradouro = $request->input('logradouro');
         $ticket->numero = $request->input('numero');
         $ticket->complemento = $request->input('complemento');
         $ticket->uf = $request->input('uf');

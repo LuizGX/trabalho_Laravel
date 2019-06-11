@@ -19,7 +19,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <form method="POST" action="{{ route('ticket.store') }}">
+                        {!! Form::open(['method'=>'POST', 'action'=>'TicketController@store']) !!}
+                        
                         @csrf
                         <fieldset>
                                 <div class="form-group row">
@@ -115,7 +116,7 @@
                                 </div>
                                 <button type="submit" class="btn btn-dark btn-block">Submit</button>
                             </fieldset>
-                        </form>
+                            {!! Form::close() !!}
                     </div>
                 </div>
             </div>

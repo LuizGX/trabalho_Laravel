@@ -23,7 +23,6 @@ class CreateTicketsTable extends Migration
             $table->string('dt_nasc');
             $table->string('telefone');
             $table->string('cep');
-            $table->string('logradouro');
             $table->string('numero');
             $table->string('complemento');
             $table->string('cidade');

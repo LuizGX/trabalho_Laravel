@@ -21,8 +21,6 @@ Route::get('/cadastrar', function () {
     return view('pages/cadastrar');
 })->name('cadastrar.index');
 
-Route::post('/addTicket', 'TicketController@store')->name('ticket.store');
-
 Route::get('/lista', 'TicketController@index')->name('ticket.index');
 
 Route::post('/deleteTicket/{id}', 'TicketController@destroy')->name('ticket.delete');
@@ -36,3 +34,9 @@ Route::post('/deleteTicket/{id}', 'TicketController@destroy')->name('ticket.dele
 	return $user[0]->name;
 
 });*/
+
+Route::group(['middleware'=>'web'], function(){
+
+	Route::resource('/posts', 'TicketController');
+
+});
