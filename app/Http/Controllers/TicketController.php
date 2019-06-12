@@ -55,6 +55,7 @@ class TicketController extends Controller
         $ticket->dt_nasc = $request->input('dt_nasc');
         $ticket->telefone= $request->input('telefone');
         $ticket->cep = $request->input('cep');
+        $ticket->rua = $request->input('rua');
         $ticket->cidade = $request->input('cidade');
         $ticket->numero = $request->input('numero');
         $ticket->complemento = $request->input('complemento');
@@ -86,7 +87,8 @@ class TicketController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ticket = Ticket::findOrFail($id);
+        return view("pages/editar")->with('ticket', $ticket);
     }
 
     /**

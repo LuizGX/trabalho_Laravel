@@ -28,6 +28,7 @@ class CreateTicketsTable extends Migration
             $table->string('complemento');
             $table->string('cidade');
             $table->string('uf');
+            $table->string('rua');
             $table->string('bairro');
             $table->string('pais');
             $table->timestamps();
