@@ -134,6 +134,13 @@ body, html{
       transition: all 0.218s;
   }
   
+  .register:hover,
+  .register:active,
+  .register:focus {
+      color: #FFF;
+      background-color: #323620;
+  }
+
   .forgot-password:hover,
   .forgot-password:active,
   .forgot-password:focus{
