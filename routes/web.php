@@ -25,13 +25,11 @@ Route::get('/lista', 'TicketController@index')->name('ticket.index');
 
 Route::post('/deleteTicket/{id}', 'TicketController@destroy')->name('ticket.delete');
 
+//Testando ligacao usuario com ticket
+/*Route::get('/user/{id}', function($id){
+	$user = User::find($id)->ticket()->orderBy('id','desc')->get();
 
-//testar a funcionalidade role_user
-
-/*Route::get('/user/{id}/role', function($id){
-	$user = User::find($id)->roles()->orderBy('id','desc')->get();
-
-	return $user[0]->name;
+	return $user[0];
 
 });*/
 

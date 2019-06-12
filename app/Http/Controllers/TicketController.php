@@ -39,7 +39,14 @@ class TicketController extends Controller
      */
     public function store(CreateUserRequest $request)
     {
+        $user = new User();
+        $user->name = $request->input('nome');
+        $user->email = $request->input('email');
+        $user->password = $request->input('senha');
+        $user->save();
+
         $ticket = new Ticket();
+        $ticket->user_id = $user->id;
         $ticket->nome = $request->input('nome');
         $ticket->sobrenome = $request->input('sobrenome');
         $ticket->rg = $request->input('rg');
@@ -56,11 +63,6 @@ class TicketController extends Controller
         $ticket->pais = $request->input('pais');
         $ticket->save();
 
-        $user = new User();
-        $user->name = $request->input('nome');
-        $user->email = $request->input('email');
-        $user->password = $request->input('senha');
-        $user->save();
         return redirect('/');
         //return redirect()->route('profile', [$user]);
     }
