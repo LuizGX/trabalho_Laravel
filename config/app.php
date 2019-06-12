@@ -167,6 +167,7 @@ return [
          */
 
         Collective\Html\HtmlServiceProvider::class,
+        geekcom\ValidatorDocs\ValidatorProvider::class,
 
         /*
          * Application Service Providers...

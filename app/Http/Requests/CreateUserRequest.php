@@ -24,23 +24,21 @@ class CreateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome' => 'required',
-            'sobrenome' => 'required',
+            'nome' => 'required|alpha',
+            'sobrenome' => 'required|alpha',
             'rg' => 'required',
-            'cpf' => 'required',
+            'cpf' => 'required|cpf',
             'sexo' => 'required',
             'dt_nasc' => 'required',
-            'telefone' => 'required',
+            'telefone' => 'required|numeric',
             'cep' => 'required',
-            'cidade' => 'required',
-            'numero' => 'required',
-            'complemento' => 'required',
-            'uf' => 'required',
-            'bairro' => 'required',
-            'pais' => 'required',
-
-            'nome' => 'required',
-            'email' => 'required',
+            'cidade' => 'required|alpha',
+            'numero' => 'required|numeric',
+            'complemento' => 'required|alpha_num',
+            'uf' => 'required|alpha',
+            'bairro' => 'required|alpha',
+            'pais' => 'required|alpha',
+            'email' => 'required|email',
             'senha' => 'required',
         ];
     }
