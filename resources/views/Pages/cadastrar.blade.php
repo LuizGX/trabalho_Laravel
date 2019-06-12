@@ -111,11 +111,20 @@
                                     </div>
                                     <div class="col-md-3">
                                         <label for="senha">Senha</label>
-                                        <input type="text" class="form-control" name="senha" placeholder="************">
+                                        <input type="password" class="form-control" name="senha" placeholder="************">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-dark btn-block">Submit</button>
                             </fieldset>
+                @if(count($errors)>0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li> {{ $error }} </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                             {!! Form::close() !!}
                     </div>
                 </div>

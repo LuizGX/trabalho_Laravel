@@ -37,6 +37,6 @@ Route::post('/deleteTicket/{id}', 'TicketController@destroy')->name('ticket.dele
 
 Route::group(['middleware'=>'web'], function(){
 
-	Route::resource('/posts', 'TicketController');
+	Route::resource('/ticket', 'TicketController');
 
 });

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateUserRequest;
+
 use App\Ticket;
 use App\User;
 
@@ -35,7 +37,7 @@ class TicketController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateUserRequest $request)
     {
         $ticket = new Ticket();
         $ticket->nome = $request->input('nome');
@@ -59,7 +61,6 @@ class TicketController extends Controller
         $user->email = $request->input('email');
         $user->password = $request->input('senha');
         $user->save();
-
         return redirect('/');
         //return redirect()->route('profile', [$user]);
     }
