@@ -12,7 +12,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        {!! Form::open(['method'=>'POST', 'action'=>'TicketController@store']) !!}
+                        {!! Form::model($ticket,['method'=>'PATCH', 'action'=>['TicketController@update',$ticket->id]]) !!}
                         
                         @csrf
                         <fieldset>

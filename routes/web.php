@@ -25,6 +25,8 @@ Route::get('/lista', 'TicketController@index')->name('ticket.index');
 
 //Route::get('/edit/{id}', 'TicketController@edit');
 
+Route::resource('posts', 'TicketController');
+
 Route::post('/deleteTicket/{id}', 'TicketController@destroy')->name('ticket.delete');
 
 //Testando ligacao usuario com ticket
