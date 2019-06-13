@@ -19,7 +19,6 @@
 				<tr>
 					<th>ID</th>
 					<th>Nome</th>
-					<th>E-mail</th>
 					<th>RG</th>
 					<th>CPF</th>
 					<th></th>
@@ -32,10 +31,11 @@
 				<tr>
 					<td>{{ $ticket->id }}</td>
 					<td>{{ $ticket->nome . " " . $ticket->sobrenome }}</td>
-					<td>{{ $ticket->email }}</td>
 					<td>{{ $ticket->rg }}</td>
 					<td>{{ $ticket->cpf }}</td>
+					<form action="{{ route('ticket.edit', $ticket->id) }}">
 					<td><button class="btn btn-warning" data-toggle="modal">Editar</button></td>
+					</form>
 					<td><button class="btn btn-danger" data-toggle="modal" data-target="#deleteTicketModal-{{ $ticket->id }}">Remover</button></td>
 				</tr>	
 				@endforeach

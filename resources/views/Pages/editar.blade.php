@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>Cadastrar</title>
-        <link rel="stylesheet" href="../css/bootstrap.css">
-        <link rel="stylesheet" href="../css/cadastrar.css">
+        <link rel="stylesheet" href="/css/bootstrap.css">
+        <link rel="stylesheet" href="/css/cadastrar.css">
         <script src="../js/bootstrap.js"></script>
     </head>
     <body>

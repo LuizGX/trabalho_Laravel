@@ -23,7 +23,7 @@ Route::get('/cadastrar', function () {
 
 Route::get('/lista', 'TicketController@index')->name('ticket.index');
 
-Route::get('/edit/{id}', 'TicketController@edit');
+//Route::get('/edit/{id}', 'TicketController@edit');
 
 Route::post('/deleteTicket/{id}', 'TicketController@destroy')->name('ticket.delete');
 

@@ -37,7 +37,7 @@ class CreateUserRequest extends FormRequest
             'complemento' => 'required|alpha_num',
             'uf' => 'required',
             'rua' => 'required',
-            'bairro' => 'required|alpha',
+            'bairro' => 'required',
             'pais' => 'required|alpha',
             'email' => 'required|email',
             'senha' => 'required',
