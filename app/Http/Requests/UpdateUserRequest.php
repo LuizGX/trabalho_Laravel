@@ -24,12 +24,6 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome' => 'required|alpha',
-            'sobrenome' => 'required|alpha',
-            'rg' => 'required',
-            'cpf' => 'required|cpf',
-            'sexo' => 'required',
-            'dt_nasc' => 'required',
             'telefone' => 'required|numeric',
             'cep' => 'required',
             'cidade' => 'required|alpha',

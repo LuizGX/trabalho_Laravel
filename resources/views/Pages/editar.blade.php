@@ -1,3 +1,12 @@
+<?php
+
+use App\User;
+$user = User::findOrFail(Auth::user()->id);
+$blocked = "";
+    if($user['isAdmin'] == 0){
+        $blocked = 'disabled';
+    }
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,27 +28,27 @@
                                 <div class="form-group row">
                                     <div class="col-md-6">
                                         <label for="nome">Nome</label>
-                                        <input type="text" value="{{$ticket->nome}}" class="form-control" name="nome" placeholder="Nome">
+                                        <input type="text" value="{{$ticket->nome}}" class="form-control" {{$blocked}} name="nome" placeholder="Nome">
                                     </div>
                                     <div class="col-md-6">
                                         <label for="sobrenome">Sobrenome</label>
-                                        <input type="text" value="{{$ticket->sobrenome}}" class="form-control" name="sobrenome" placeholder="Sobrenome">
+                                        <input type="text" value="{{$ticket->sobrenome}}" class="form-control" {{$blocked}} name="sobrenome" placeholder="Sobrenome">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-6">
                                         <label for="rg">RG</label>
-                                        <input type="text" value="{{$ticket->rg}}" class="form-control" name="rg" placeholder="UF-12.345.678">
+                                        <input type="text" value="{{$ticket->rg}}" class="form-control" {{$blocked}} name="rg" placeholder="UF-12.345.678">
                                     </div>
                                     <div class="col-md-6">
                                         <label for="cpf">CPF</label>
-                                        <input type="text" value="{{$ticket->cpf}}" class="form-control" name="cpf" placeholder="123.456.789-00">
+                                        <input type="text" value="{{$ticket->cpf}}" class="form-control" {{$blocked}} name="cpf" placeholder="123.456.789-00">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-2">
                                         <label for="sexo">Sexo</label><br>
-                                        <select value="{{$ticket->sexo}}" name="sexo" class="custom-select">
+                                        <select value="{{$ticket->sexo}}" {{$blocked}} name="sexo" class="custom-select">
                                             <option value="masculino">Masculino</option>
                                             <option value="feminino">Feminino</option>
                                             <option value="outro">Outro</option>
@@ -47,7 +56,7 @@
                                     </div>
                                     <div class="col-md-2">
                                         <label for="dt_nasc">Data de Nascimento</label>
-                                        <input type="date" value="{{$ticket->dt_nasc}}" class="form-control" name="dt_nasc">
+                                        <input type="date" value="{{$ticket->dt_nasc}}" class="form-control" {{$blocked}} name="dt_nasc">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="telefone">Telefone</label>
