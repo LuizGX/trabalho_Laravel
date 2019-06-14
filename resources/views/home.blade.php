@@ -1,8 +1,8 @@
 <?php
 use App\Ticket;
 use App\User;
-    $var = Ticket::findOrFail(Auth::user()->id);
-    $user = User::findOrFail(Auth::user()->id);
+    $var = Ticket::where('user_id', Auth::user()->id)->first();
+    $user = User::find(Auth::user()->id);
     $criar=true;
     $admin=false;
 
@@ -16,8 +16,8 @@ use App\User;
             $admin = true;
         }
 
-    $user = User::findOrFail(Auth::user()->id);
-    echo($user['isAdmin']);
+    //$user = User::findOrFail(Auth::user()->id);
+    // var_dump($var['id']);
     
 ?>
 <!doctype html>
@@ -48,7 +48,7 @@ use App\User;
                     <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">CRIAR INFORMAÇÕES PESSOAIS</button>
                 </form>
                 @else
-                <form action="{{ route('ticket.edit', Auth::user()->id) }}" class="signin">
+                <form action="{{ route('ticket.edit', $var['id']) }}" class="signin">
                     @csrf
                     <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">EDITAR INFORMAÇÕES PESSOAIS</button>
                 </form>

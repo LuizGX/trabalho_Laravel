@@ -1,7 +1,7 @@
 <?php
 
 use App\User;
-$user = User::findOrFail(Auth::user()->id);
+$user = User::find(Auth::user()->id);
 $blocked = "";
     if($user['isAdmin'] == 0){
         $blocked = 'disabled';
