@@ -14,7 +14,7 @@ use App\User;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('auth.login');
 });
 
 Route::get('/cadastrar', function () {
@@ -23,9 +23,7 @@ Route::get('/cadastrar', function () {
 
 Route::get('/lista', 'TicketController@index')->name('ticket.index');
 
-//Route::get('/edit/{id}', 'TicketController@edit');
-
-Route::resource('posts', 'TicketController');
+//Route::resource('posts', 'TicketController');
 
 Route::post('/deleteTicket/{id}', 'TicketController@destroy')->name('ticket.delete');
 
@@ -42,3 +40,7 @@ Route::group(['middleware'=>'web'], function(){
 	Route::resource('/ticket', 'TicketController');
 
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

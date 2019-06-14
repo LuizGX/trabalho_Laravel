@@ -1,10 +1,3 @@
-<?php
-    use Canducci\ZipCode\Facades\ZipCode;
-    $zipCodeInfo = ZipCode::find('38066-030');
-    $arr = $zipCodeInfo->getArray();
-    //var_dump($arr);
-    //echo $arr["logradouro"];
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -102,16 +95,6 @@
                                     <div class="col-md-3">
                                         <label for="pais">País</label>
                                         <input type="text" class="form-control" name="pais" placeholder="Ex. Brasil">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-md-5">
-                                        <label for="email">E-mail</label>
-                                        <input type="text" class="form-control" name="email" placeholder="exemplo@dominio.com">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label for="senha">Senha</label>
-                                        <input type="password" class="form-control" name="senha" placeholder="************">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-dark btn-block">Submit</button>

@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateUserRequest;
 
 use App\Ticket;
 use App\User;
+use Auth;
 
 class TicketController extends Controller
 {
@@ -40,14 +41,8 @@ class TicketController extends Controller
      */
     public function store(CreateUserRequest $request)
     {
-        $user = new User();
-        $user->name = $request->input('nome');
-        $user->email = $request->input('email');
-        $user->password = $request->input('senha');
-        $user->save();
-
         $ticket = new Ticket();
-        $ticket->user_id = $user->id;
+        $ticket->user_id = Auth::user()->id;
         $ticket->nome = $request->input('nome');
         $ticket->sobrenome = $request->input('sobrenome');
         $ticket->rg = $request->input('rg');

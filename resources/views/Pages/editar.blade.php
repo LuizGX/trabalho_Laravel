@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Cadastrar</title>
+        <title>Editar</title>
         <link rel="stylesheet" href="/css/bootstrap.css">
         <link rel="stylesheet" href="/css/cadastrar.css">
         <script src="../js/bootstrap.js"></script>

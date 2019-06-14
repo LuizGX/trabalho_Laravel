@@ -39,8 +39,6 @@ class CreateUserRequest extends FormRequest
             'rua' => 'required',
             'bairro' => 'required',
             'pais' => 'required|alpha',
-            'email' => 'required|email',
-            'senha' => 'required',
         ];
     }
 }
